@@ -32,8 +32,8 @@ class _MainPageState extends State<MainPage> {
           ),
           child: ListView(children: [
             Head(),
-            ItemsBorrowed(),
             AvailableItems(),
+            BorrowNavigationWidget()
           ],),
         ),
       ),

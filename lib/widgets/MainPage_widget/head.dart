@@ -18,7 +18,7 @@ class _HeadState extends State<Head> {
       child: Container(
         padding: EdgeInsets.all(10),
         width: double.infinity,
-        decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(20), border: Border.all(color: Colors.black)),
+        decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(20), border: Border.all(color: Colors.black, width: 2)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('sop peminjaman barang : ', style: GoogleFonts.roboto(textStyle: s18w600),),
