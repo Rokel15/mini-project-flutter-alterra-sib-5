@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widget/AvailableItems.dart';
-import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widget/ItemsBorrowed.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widget/BorrowNavigationWidget.dart';
 
 import '../widgets/MainPage_widget/head.dart';
 
