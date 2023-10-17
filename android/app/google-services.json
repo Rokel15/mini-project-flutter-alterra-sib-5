@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "379085914708",
+    "project_id": "mini-project-alterra-sib-5",
+    "storage_bucket": "mini-project-alterra-sib-5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379085914708:android:1a416a2c3e572388f063c1",
+        "android_client_info": {
+          "package_name": "com.example.mini_project_flutter_alterra_sib_5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPHWgPew1oQt7oUTsco0omJBZ58LA4_qo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
