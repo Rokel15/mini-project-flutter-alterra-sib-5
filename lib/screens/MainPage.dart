@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegistNamePage.dart';
 
 import '../widgets/MainPage_widgets/AvailableItems.dart';
@@ -43,13 +44,15 @@ class _MainPageState extends State<MainPage> {
             Container(margin: EdgeInsets.symmetric(vertical: 10) ,width: double.infinity, height: 2, color: Colors.black,),
             AvailableItems(),
             BorrowNavigationWidget(),
-            Container(margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15), width: double.infinity,
+
+            Container(margin: EdgeInsets.all(15), width: double.infinity,
               child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.list_alt),
-                      Text('Daftar Barang yang anda pinjam'),
+                      Icon(Icons.list_alt, size: 30,),
+                      SizedBox(width: 5,),
+                      Text('Daftar Barang yang anda pinjam', style: GoogleFonts.roboto(textStyle: s18w600),),
                     ],
                   ),
                 ],

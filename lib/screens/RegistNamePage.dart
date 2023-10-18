@@ -39,6 +39,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
               label: "Nama : ",
               textEditingController: nameController,
               hintText: 'input nama',
+              inputNumberOnly: false,
             ),
           ),
 
@@ -50,6 +51,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
               label: "NPM : ",
               textEditingController: npmController,
               hintText: 'input NPM',
+              inputNumberOnly: true,
             ),
           ),
 
