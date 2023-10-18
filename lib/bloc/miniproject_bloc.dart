@@ -8,8 +8,10 @@ part 'miniproject_state.dart';
 
 class MiniprojectBloc extends Bloc<MiniprojectEvent, MiniprojectState> {
   MiniprojectBloc() : super(MiniprojectInitial()) {
-    on<MiniprojectEvent>((event, emit) {
-      // TODO: implement event handler
+    on<OpenApp>((event, emit) async{
+      emit(AppLoading());
+      await Future.delayed(const Duration(seconds: 3));
+      emit(AppLoaded());
     });
   }
 }

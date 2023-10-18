@@ -17,7 +17,6 @@ class FormInputWidget extends StatelessWidget {
     required this.inputNumberOnly
   });
 
-
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.start,
