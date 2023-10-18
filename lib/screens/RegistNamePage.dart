@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
-import 'package:mini_project_flutter_alterra_sib_5/widgets/RegistNamePage_widgets/FormInput.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/RegistNamePage_widgets/FormInputWidget.dart';
 
 class RegistNamePage extends StatefulWidget {
   const RegistNamePage({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
           Container(
             margin: EdgeInsets.only(top: 20, left: 20, right: 20),
             width: double.infinity,
-            child: FormInput(
+            child: FormInputWidget(
               label: "Nama : ",
               textEditingController: nameController,
               hintText: 'input nama',
@@ -46,7 +46,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
           Container(
             margin: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
             width: double.infinity,
-            child: FormInput(
+            child: FormInputWidget(
               label: "NPM : ",
               textEditingController: npmController,
               hintText: 'input NPM',

@@ -3,12 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../data/FontStyle.dart';
 
-class FormInput extends StatelessWidget {
+class FormInputWidget extends StatelessWidget {
   String label;
   TextEditingController textEditingController = TextEditingController();
   String hintText;
 
-  FormInput({
+  FormInputWidget({
     required this.label,
     required this.textEditingController,
     required this.hintText
