@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegisteredPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/RegistNamePage_widgets/FormInputWidget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegistNamePage extends StatefulWidget {
   const RegistNamePage({Key? key}) : super(key: key);
@@ -14,6 +15,10 @@ class RegistNamePage extends StatefulWidget {
 class _RegistNamePageState extends State<RegistNamePage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController npmController = TextEditingController();
+  late SharedPreferences data;
+  late bool user;
+  String? name;
+  String? npm;
 
   @override
   void dispose() {
@@ -21,6 +26,25 @@ class _RegistNamePageState extends State<RegistNamePage> {
     npmController.dispose();
     super.dispose();
   }
+
+  void checkData() async{
+    data = await SharedPreferences.getInstance();
+    user = data.getBool('regist') ?? true;
+
+    if(user==false){
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context){return RegisteredPage();}),
+            (route) => false,);
+    }
+  }
+
+  @override
+  void initState() {
+    checkData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,11 +86,20 @@ class _RegistNamePageState extends State<RegistNamePage> {
               child: Text('Regist', style: GoogleFonts.roboto(textStyle: white_s16w600),),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.purple[900],),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context){return RegisteredPage();
-                  }),
-                );
+                if(nameController.text.isNotEmpty && npmController.text.isNotEmpty){
+                  name = nameController.text;
+                  npm = npmController.text;
+                  data.setBool('regist', false);
+                  data.setString('name', name!);
+                  data.setString('npm', npm!);
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context){return RegisteredPage();}),
+                          (route) => false);
+                } else if(nameController.text.isEmpty && npmController.text.isEmpty){
+                  SnackBar snackbarMessage = SnackBar(content: Text('nama dan npm tidak boleh kosong'));
+                  ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
+                }
               },
             ),
           ),
