@@ -60,6 +60,9 @@ class _RegisteredPageState extends State<RegisteredPage> {
                   child: Text('Unregister', style: GoogleFonts.roboto(textStyle: white_s16w600),),
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.purple[900],),
                   onPressed: (){
+                    data.setBool('regist', true);
+                    data.remove('name');
+                    data.remove('npm');
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => const MainPage()),

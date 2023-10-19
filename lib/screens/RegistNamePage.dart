@@ -55,7 +55,6 @@ class _RegistNamePageState extends State<RegistNamePage> {
       ),
       body: ListView(
         children: [
-
           //input nama
           Container(
             margin: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -103,7 +102,6 @@ class _RegistNamePageState extends State<RegistNamePage> {
               },
             ),
           ),
-
         ],
       ),
     );
