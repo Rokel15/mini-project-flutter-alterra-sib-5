@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/RegisteredPage_widgets/ShowUsernameData.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'MainPage.dart';
 
@@ -11,6 +14,24 @@ class RegisteredPage extends StatefulWidget {
 }
 
 class _RegisteredPageState extends State<RegisteredPage> {
+  late SharedPreferences data;
+  String? name;
+  String? npm;
+
+  void initial() async{
+    data = await SharedPreferences.getInstance();
+    setState(() {
+      name = data.getString('name').toString();
+      npm = data.getString('npm').toString();
+    });
+  }
+
+  @override
+  void initState() {
+    initial();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -31,11 +52,13 @@ class _RegisteredPageState extends State<RegisteredPage> {
         body: Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('your name have been registered '),
-              Text('nama'),
-              Text('npm'),
+              ShowUsernameData(name: name!, npm: npm!),
+
+              SizedBox(height: 10),
+
               ElevatedButton(
-                  child: Text('Unregister'),
+                  child: Text('Unregister', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.purple[900],),
                   onPressed: (){
                     Navigator.pushReplacement(
                       context,
