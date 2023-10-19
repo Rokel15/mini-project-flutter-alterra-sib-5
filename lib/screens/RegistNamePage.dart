@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
+import 'package:mini_project_flutter_alterra_sib_5/screens/RegisteredPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/RegistNamePage_widgets/FormInputWidget.dart';
 
 class RegistNamePage extends StatefulWidget {
@@ -60,7 +61,13 @@ class _RegistNamePageState extends State<RegistNamePage> {
             child: ElevatedButton(
               child: Text('Regist', style: GoogleFonts.roboto(textStyle: white_s16w600),),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.purple[900],),
-              onPressed: (){},
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context){return RegisteredPage();
+                  }),
+                );
+              },
             ),
           ),
 

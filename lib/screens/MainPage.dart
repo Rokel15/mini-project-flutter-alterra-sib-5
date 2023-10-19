@@ -49,18 +49,44 @@ class _MainPageState extends State<MainPage> {
                 ),
                 child: ListView(children: [
                   Head(),
-                  Container(margin: EdgeInsets.symmetric(vertical: 10) ,width: double.infinity, height: 2, color: Colors.black,),
-                  AvailableItems(),
-                  BorrowNavigationWidget(),
 
-                  Container(margin: EdgeInsets.all(15), width: double.infinity,
+                  SizedBox(height: 25,),
+
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.all(20),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: Colors.black, width: 2)
+                    ),
+                    child: Column(
+                      children: [
+                        AvailableItems(),
+                        SizedBox(height: 15),
+                        BorrowNavigationWidget(),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 25,),
+
+                  Container(margin: EdgeInsets.symmetric(horizontal: 15), width: double.infinity,
                     child: Column(crossAxisAlignment : CrossAxisAlignment.start,
                       children: [
-                        Row(
+                        Column(
                           children: [
-                            Icon(Icons.list_alt, size: 30,),
-                            SizedBox(width: 5,),
-                            Text('Daftar Barang yang anda pinjam', style: GoogleFonts.roboto(textStyle: s18w600),),
+                            Row(
+                              children: [
+                                Icon(Icons.list_alt, size: 30,),
+                                SizedBox(width: 5,),
+                                Text('Daftar Barang yang anda pinjam', style: GoogleFonts.roboto(textStyle: s18w600),),
+                              ],
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 5), width: double.infinity, height: 2.5,
+                              color: Colors.black,
+                            )
                           ],
                         ),
                       ],

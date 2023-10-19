@@ -14,7 +14,7 @@ class _HeadState extends State<Head> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 15), width: double.infinity,
+      margin: EdgeInsets.only(top: 20, left: 15, right: 15), width: double.infinity,
       child: Container(
         padding: EdgeInsets.all(10),
         width: double.infinity,

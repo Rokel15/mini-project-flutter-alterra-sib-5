@@ -14,7 +14,6 @@ class _BorrowNavigationWidgetState extends State<BorrowNavigationWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
           color: Colors.purple[800],
