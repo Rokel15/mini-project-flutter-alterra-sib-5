@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Material(color: Colors.white,
       child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Powered ny : ', style: GoogleFonts.roboto(textStyle: s16w600),),
+            Text('Powered by : ', style: GoogleFonts.roboto(textStyle: s16w600),),
             SizedBox(height: 8),
             Image.asset(
               imgSplashScreen1,
