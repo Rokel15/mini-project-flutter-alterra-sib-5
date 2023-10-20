@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/bloc/miniproject_bloc.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
+import 'package:mini_project_flutter_alterra_sib_5/screens/AvailableItemsPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegistNamePage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/SplashScreen.dart';
 
-import '../widgets/MainPage_widgets/AvailableItems.dart';
+import '../widgets/MainPage_widgets/AvailableItemsNavigationWidget.dart';
 import '../widgets/MainPage_widgets/BorrowNavigationWidget.dart';
 import '../widgets/MainPage_widgets/head.dart';
 
@@ -22,9 +23,9 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-    CollectionReference readyItems = firestore.collection('Ready Items');
-    CollectionReference borrowedItems = firestore.collection('Borrowed Items');
+    // FirebaseFirestore firestore = FirebaseFirestore.instance;
+    // CollectionReference readyItems = firestore.collection('Ready Items');
+    // CollectionReference borrowedItems = firestore.collection('Borrowed Items');
 
     return Scaffold(
       appBar: AppBar(
@@ -67,7 +68,15 @@ class _MainPageState extends State<MainPage> {
                     ),
                     child: Column(
                       children: [
-                        AvailableItems(),
+                        AvailableItemsNavigationWidget(
+                          label: 'Barang Tersedia',
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){return AvailableItemsPage();}),
+                            );
+                          },
+                        ),
                         SizedBox(height: 15),
                         BorrowNavigationWidget(),
                       ],

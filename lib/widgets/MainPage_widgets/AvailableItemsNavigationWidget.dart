@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 
-class AvailableItems extends StatefulWidget {
-  const AvailableItems({Key? key}) : super(key: key);
+class AvailableItemsNavigationWidget extends StatefulWidget {
+  String label;
+  Function() onTap;
+  AvailableItemsNavigationWidget({
+    required this.label,
+    required this.onTap,
+  });
 
   @override
-  State<AvailableItems> createState() => _AvailableItemsState();
+  State<AvailableItemsNavigationWidget> createState() => _AvailableItemsNavigationWidgetState();
 }
 
-class _AvailableItemsState extends State<AvailableItems> {
+class _AvailableItemsNavigationWidgetState extends State<AvailableItemsNavigationWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,12 +29,15 @@ class _AvailableItemsState extends State<AvailableItems> {
         children: [
           Icon(Icons.business, size: 30, color: Colors.white),
           SizedBox(height: 10,),
-          Row(
-            children:[
-              Text('Barang Tersedia', style: GoogleFonts.roboto(textStyle: white_s18w600),),
-              SizedBox(width: 8,),
-              Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
-            ],
+          GestureDetector(
+            child: Row(
+              children:[
+                Text(widget.label, style: GoogleFonts.roboto(textStyle: white_s18w600),),
+                SizedBox(width: 8,),
+                Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
+              ],
+            ),
+            onTap: widget.onTap,
           ),
         ],
       ),
