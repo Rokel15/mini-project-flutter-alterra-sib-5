@@ -28,7 +28,7 @@ class _AvailableItemsPageState extends State<AvailableItemsPage> {
             borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20),),
             color: Colors.white,
           ),
-          child: ListView(
+          child: Column(
             children: [
               Container(
                 width: double.infinity, margin: EdgeInsets.only(top: 20, left: 15, right: 15),
@@ -46,25 +46,33 @@ class _AvailableItemsPageState extends State<AvailableItemsPage> {
                 color: Colors.black,
               ),
 
-              Container(
-                width: double.infinity,
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: readyItems.snapshots(),
-                  builder: (_, snapshot){
-                    if(snapshot.hasData){
-                      return Column(
-                        children: snapshot.data!.docs.map((e)
-                        => ShowAvailableItems(
-                          namaBarang: (e.data() as dynamic)['nama barang'].toString(),
-                          jmlBarang: (e.data() as dynamic)['jumlah barang'].toString(),
-                        )).toList(),
-                      );
-                    } else{
-                      return Center(child: CircularProgressIndicator(),);
-                    }
-                  },
+              Expanded(
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Container(
+                        width: double.infinity,
+                        child: StreamBuilder<QuerySnapshot>(
+                          stream: readyItems.snapshots(),
+                          builder: (_, snapshot){
+                            if(snapshot.hasData){
+                              return Column(
+                                children: snapshot.data!.docs.map((e)
+                                => ShowAvailableItems(
+                                  namaBarang: (e.data() as dynamic)['nama barang'].toString(),
+                                  jmlBarang: (e.data() as dynamic)['jumlah barang'].toString(),
+                                )).toList(),
+                              );
+                            } else{
+                              return Center(child: CircularProgressIndicator());
+                            }
+                          },
+                        ),
+                      ),
+                    )
+                  ],
                 ),
-              )
+              ),
             ],
           ),
         ),

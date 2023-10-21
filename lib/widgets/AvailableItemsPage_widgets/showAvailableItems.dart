@@ -18,11 +18,25 @@ class _ShowAvailableItemsState extends State<ShowAvailableItems> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(widget.namaBarang, style: GoogleFonts.roboto(textStyle: s16w600)),
-          Text(widget.jmlBarang, style: GoogleFonts.roboto(textStyle: s16w600)),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(13),
+                color: Color(0xff2B3467)
+            ),
+            child: Text(widget.namaBarang, style: GoogleFonts.roboto(textStyle: white_s16w600)),
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Color(0xff2B3467),
+            ),
+            child: Text(widget.jmlBarang, style: GoogleFonts.roboto(textStyle: white_s16w600)),
+          ),
         ],
       ),
     );

@@ -19,7 +19,6 @@ class _AvailableItemsNavigationWidgetState extends State<AvailableItemsNavigatio
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: Color(0xff3F497F),
