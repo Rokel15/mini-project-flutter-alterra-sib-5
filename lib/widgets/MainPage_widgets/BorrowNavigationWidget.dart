@@ -3,7 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../data/FontStyle.dart';
 
 class BorrowNavigationWidget extends StatefulWidget {
-  const BorrowNavigationWidget({Key? key}) : super(key: key);
+  String label;
+  Function() onTap;
+
+  BorrowNavigationWidget({
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   State<BorrowNavigationWidget> createState() => _BorrowNavigationWidgetState();
@@ -23,12 +29,15 @@ class _BorrowNavigationWidgetState extends State<BorrowNavigationWidget> {
         children: [
           Icon(Icons.edit, size: 30, color: Colors.white),
           SizedBox(height: 10,),
-          Row(
-            children:[
-              Text('Pinjam Barang', style: GoogleFonts.roboto(textStyle: white_s18w600),),
-              SizedBox(width: 8,),
-              Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
-            ],
+          GestureDetector(
+            child: Row(
+              children:[
+                Text(widget.label, style: GoogleFonts.roboto(textStyle: white_s18w600),),
+                SizedBox(width: 8,),
+                Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
+              ],
+            ),
+            onTap: widget.onTap,
           ),
         ],
       ),

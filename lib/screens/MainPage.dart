@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/bloc/miniproject_bloc.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/AvailableItemsPage.dart';
+import 'package:mini_project_flutter_alterra_sib_5/screens/BorrowItemsPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegistNamePage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/SplashScreen.dart';
 
@@ -78,7 +79,15 @@ class _MainPageState extends State<MainPage> {
                           },
                         ),
                         SizedBox(height: 15),
-                        BorrowNavigationWidget(),
+                        BorrowNavigationWidget(
+                          label: 'Pinjam Barang',
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context){return BorrowItemsPage();}),
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
