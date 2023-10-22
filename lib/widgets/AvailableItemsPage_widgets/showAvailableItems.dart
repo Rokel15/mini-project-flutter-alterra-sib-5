@@ -18,27 +18,28 @@ class _ShowAvailableItemsState extends State<ShowAvailableItems> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(13),
-                color: Color(0xff2B3467)
+      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Text(widget.namaBarang,
+                  style: GoogleFonts.roboto(textStyle: s16w600)),
             ),
-            child: Text(widget.namaBarang, style: GoogleFonts.roboto(textStyle: white_s16w600)),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: Color(0xff2B3467),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Color(0xff3C486B),
+              ),
+              child: Text(widget.jmlBarang,
+                  style: GoogleFonts.roboto(textStyle: white_s16w600)),
             ),
-            child: Text(widget.jmlBarang, style: GoogleFonts.roboto(textStyle: white_s16w600)),
-          ),
-        ],
-      ),
+          ],
+        ),
+        Divider()
+      ]),
     );
   }
 }

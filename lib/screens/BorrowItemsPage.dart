@@ -42,6 +42,9 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
           Container(
             width: double.infinity,
             child: Text('User : $name', style: GoogleFonts.roboto(textStyle: s16w600),),
+          ),
+          Container(
+            width: double.infinity,
           )
         ],
       ),
