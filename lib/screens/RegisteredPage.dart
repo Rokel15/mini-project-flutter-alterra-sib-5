@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
-import 'package:mini_project_flutter_alterra_sib_5/widgets/RegisteredPage_widgets/ShowUsernameData.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../widgets/Registration_widgets/ShowUsernameData.dart';
 import 'MainPage.dart';
 
 class RegisteredPage extends StatefulWidget {
@@ -40,7 +40,7 @@ class _RegisteredPageState extends State<RegisteredPage> {
           title: Text('Resgistered', style: GoogleFonts.roboto(color: Colors.white)),
           backgroundColor: const Color(0xff293462),
           leading: GestureDetector(
-            child: Icon(Icons.arrow_back),
+            child: const Icon(Icons.arrow_back),
             onTap: (){
               Navigator.pushReplacement(
                 context,
@@ -54,7 +54,7 @@ class _RegisteredPageState extends State<RegisteredPage> {
             children: [
               ShowUsernameData(name: name!, npm: npm!),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               ElevatedButton(
                   child: Text('Unregister', style: GoogleFonts.roboto(textStyle: white_s16w600),),

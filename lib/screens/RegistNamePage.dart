@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegisteredPage.dart';
-import 'package:mini_project_flutter_alterra_sib_5/widgets/RegistNamePage_widgets/FormInputWidget.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/Registration_widgets/FormInputWidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class RegistNamePage extends StatefulWidget {

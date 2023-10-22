@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/BorrowItemsPage_widgets/ShowUserData.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../data/firebase_firestore.dart';
 
 class BorrowItemsPage extends StatefulWidget {
   const BorrowItemsPage({Key? key}) : super(key: key);
@@ -45,32 +49,22 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
       ),
       body: ListView(
         children: [
+          ShowDataUser(
+            name: name!,
+            npm: npm!,
+          ),
           Container(
-            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             width: double.infinity,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Text('User : ', style: GoogleFonts.roboto(textStyle: s16w600)),
-                    Container(
-                      child: name!='null'?
-                      Text(name!, style: GoogleFonts.roboto(textStyle: s16w600)) :
-                      Text('registrasi terlebih dahulu', style: GoogleFonts.roboto(textStyle: warning_s16w600),),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Text('Npm : ', style: GoogleFonts.roboto(textStyle: s16w600)),
-                    Container(
-                      child: npm!='null'?
-                      Text(npm!, style: GoogleFonts.roboto(textStyle: s16w600)) :
-                      Text('registrasi terlebih dahulu', style: GoogleFonts.roboto(textStyle: warning_s16w600),),
-                    ),
-                  ],
-                ),
-            ],),
+            child: StreamBuilder<QuerySnapshot>(
+              stream: borrowedItems.snapshots(),
+              builder: (_, snapshot){
+                if(snapshot.hasData){
+                  return Text('data');
+                } else{
+                  return Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
           ),
         ],
       ),
