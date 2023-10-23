@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/firebase_firestore.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/AvailableItemsPage_widgets/Head.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/AvailableItemsPage_widgets/showAvailableItems.dart';
 
 class AvailableItemsPage extends StatefulWidget {
@@ -30,21 +31,7 @@ class _AvailableItemsPageState extends State<AvailableItemsPage> {
           ),
           child: Column(
             children: [
-              Container(
-                width: double.infinity, margin: EdgeInsets.only(top: 20, left: 15, right: 15),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Nama Barang :', style: GoogleFonts.roboto(textStyle: s18w600)),
-                    Text('Jumlah Barang :', style: GoogleFonts.roboto(textStyle: s18w600))
-                  ],
-                ),
-              ),
-
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-                width: double.infinity, height: 2,
-                color: Colors.black,
-              ),
+              Head(),
 
               Expanded(
                 child: CustomScrollView(
