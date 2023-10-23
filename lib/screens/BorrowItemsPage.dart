@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/BorrowItemsPage_widgets/Borrow.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/BorrowItemsPage_widgets/BorrowButton.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/BorrowItemsPage_widgets/ShowUserData.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -88,24 +89,12 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
               ],
             ),
           ),
-          Center(
-            child: ElevatedButton(
-              child: Text('Button'),
-              onPressed: () {
-                if(name!='null' || npm!='null'){
-                  borrowedItems.add({
-                    'nama': name,
-                    'npm': npm,
-                    'barang dipinjam': barangList,
-                  });
-                  Navigator.pop(context);
-                } else {
-                  SnackBar snackbarMessage = SnackBar(content: Text('registrasi terlebih dahulu'),);
-                  ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
-                }
-              },
-            ),
-          )
+
+          BorrowButton(
+              name: name!,
+              npm: npm!,
+              barangList: barangList,
+          ),
         ],
       ),
     );
