@@ -55,6 +55,12 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
             name: name!,
             npm: npm!,
           ),
+
+          Container(
+            width: double.infinity,
+            height: 2, color: Colors.black,
+          ),
+
           Expanded(
             child: CustomScrollView(
               slivers: [
@@ -86,12 +92,17 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
             child: ElevatedButton(
               child: Text('Button'),
               onPressed: () {
-                borrowedItems.add({
-                  'nama': name,
-                  'npm': npm,
-                  'barang dipinjam': barangList,
-                });
-                Navigator.pop(context);
+                if(name!='null' || npm!='null'){
+                  borrowedItems.add({
+                    'nama': name,
+                    'npm': npm,
+                    'barang dipinjam': barangList,
+                  });
+                  Navigator.pop(context);
+                } else {
+                  SnackBar snackbarMessage = SnackBar(content: Text('registrasi terlebih dahulu'),);
+                  ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
+                }
               },
             ),
           )

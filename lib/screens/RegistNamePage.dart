@@ -85,7 +85,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
               child: Text('Regist', style: GoogleFonts.roboto(textStyle: white_s16w600),),
               style: ElevatedButton.styleFrom(backgroundColor: Colors.purple[900],),
               onPressed: (){
-                if(nameController.text.isNotEmpty && npmController.text.isNotEmpty){
+                if(nameController.text.isNotEmpty || npmController.text.isNotEmpty){
                   name = nameController.text;
                   npm = npmController.text;
                   data.setBool('regist', false);
