@@ -1,13 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mini_project_flutter_alterra_sib_5/bloc/miniproject_bloc.dart';
-import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/AvailableItemsPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/BorrowItemsPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegistNamePage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/SplashScreen.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widgets/MyNote.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../widgets/MainPage_widgets/AvailableItemsNavigationWidget.dart';
 import '../widgets/MainPage_widgets/BorrowNavigationWidget.dart';
@@ -22,12 +22,28 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  late SharedPreferences data;
+
+  // bool? user;
+  String? name;
+  String? npm;
+
+  void initial() async {
+    data = await SharedPreferences.getInstance();
+    setState(() {
+      name = data.getString('name').toString();
+      npm = data.getString('npm').toString();
+    });
+  }
+
+  @override
+  void initState() {
+    initial();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    // FirebaseFirestore firestore = FirebaseFirestore.instance;
-    // CollectionReference readyItems = firestore.collection('Ready Items');
-    // CollectionReference borrowedItems = firestore.collection('Borrowed Items');
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Peminjaman Fasilitas Lab ACSL', style: GoogleFonts.roboto(color: Colors.white),),
@@ -94,27 +110,7 @@ class _MainPageState extends State<MainPage> {
 
                   SizedBox(height: 25,),
 
-                  Container(margin: EdgeInsets.symmetric(horizontal: 15), width: double.infinity,
-                    child: Column(crossAxisAlignment : CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                Icon(Icons.list_alt, size: 30,),
-                                SizedBox(width: 5,),
-                                Text('Daftar Barang yang anda pinjam', style: GoogleFonts.roboto(textStyle: s18w600),),
-                              ],
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(vertical: 5), width: double.infinity, height: 2.5,
-                              color: Colors.black,
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  MyNote(),
                 ],),
               ),
             );

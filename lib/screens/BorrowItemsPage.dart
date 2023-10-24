@@ -27,7 +27,6 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
   void initial() async {
     data = await SharedPreferences.getInstance();
     setState(() {
-      // user = data.getBool('regist') ?? true;
       name = data.getString('name').toString();
       npm = data.getString('npm').toString();
     });
