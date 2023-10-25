@@ -83,16 +83,15 @@ class _MainPageState extends State<MainPage> {
                 child: ListView(
                   children: [
                     const Head(),
-                    const SizedBox(
-                      height: 25,
-                    ),
+                    const SizedBox(height: 25,),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 15),
                       padding: const EdgeInsets.all(20),
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(color: Colors.black, width: 2)),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.black, width: 2),
+                      ),
                       child: Column(
                         children: [
                           //Barang Tersedia
