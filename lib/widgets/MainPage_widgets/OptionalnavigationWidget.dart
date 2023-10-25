@@ -3,22 +3,24 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../data/FontStyle.dart';
 
-class AllRecordsNavigationWidget extends StatefulWidget {
+class OptionalnavigationWidget extends StatefulWidget {
   String label;
   Color color;
+  Icon icon;
   Function() onTap;
 
-  AllRecordsNavigationWidget({
+  OptionalnavigationWidget({
     required this.label,
     required this.color,
+    required this.icon,
     required this.onTap,
   });
 
   @override
-  State<AllRecordsNavigationWidget> createState() => _AllRecordsNavigationWidgetState();
+  State<OptionalnavigationWidget> createState() => _OptionalnavigationWidgetState();
 }
 
-class _AllRecordsNavigationWidgetState extends State<AllRecordsNavigationWidget> {
+class _OptionalnavigationWidgetState extends State<OptionalnavigationWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +32,8 @@ class _AllRecordsNavigationWidgetState extends State<AllRecordsNavigationWidget>
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.list_alt, size: 30, color: Colors.white),
-          SizedBox(height: 10,),
+          widget.icon,
+          const SizedBox(height: 10,),
           GestureDetector(
             child: Row(
               children:[

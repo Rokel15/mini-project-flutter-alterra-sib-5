@@ -7,12 +7,9 @@ import 'package:mini_project_flutter_alterra_sib_5/screens/AvailableItemsPage.da
 import 'package:mini_project_flutter_alterra_sib_5/screens/BorrowItemsPage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/RegistNamePage.dart';
 import 'package:mini_project_flutter_alterra_sib_5/screens/SplashScreen.dart';
-import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widgets/AllRecordsNavigationWidget.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widgets/MyNote.dart';
+import 'package:mini_project_flutter_alterra_sib_5/widgets/MainPage_widgets/OptionalnavigationWidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../widgets/MainPage_widgets/AvailableItemsNavigationWidget.dart';
-import '../widgets/MainPage_widgets/BorrowNavigationWidget.dart';
 import '../widgets/MainPage_widgets/head.dart';
 
 class MainPage extends StatefulWidget {
@@ -66,7 +63,7 @@ class _MainPageState extends State<MainPage> {
                   onPressed: () {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) {
-                      return RegistNamePage();
+                      return const RegistNamePage();
                     }));
                   },
                 )
@@ -85,7 +82,7 @@ class _MainPageState extends State<MainPage> {
                 ),
                 child: ListView(
                   children: [
-                    Head(),
+                    const Head(),
                     const SizedBox(
                       height: 25,
                     ),
@@ -98,22 +95,26 @@ class _MainPageState extends State<MainPage> {
                           border: Border.all(color: Colors.black, width: 2)),
                       child: Column(
                         children: [
-                          AvailableItemsNavigationWidget(
+                          //Barang Tersedia
+                          OptionalnavigationWidget(
                             label: 'Barang Tersedia',
                             color: const Color(0xff3F497F),
+                            icon : const Icon(Icons.business, size: 30, color: Colors.white),
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return AvailableItemsPage();
+                                  return const AvailableItemsPage();
                                 }),
                               );
                             },
                           ),
                           const SizedBox(height: 15),
-                          BorrowNavigationWidget(
+                          //Pinjam Barang
+                          OptionalnavigationWidget(
                             label: 'Pinjam Barang',
                             color: Colors.purple.shade800,
+                            icon: const Icon(Icons.edit, size: 30, color: Colors.white),
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -124,9 +125,11 @@ class _MainPageState extends State<MainPage> {
                             },
                           ),
                           const SizedBox(height: 15),
-                          AllRecordsNavigationWidget(
+                          //All Records
+                          OptionalnavigationWidget(
                             label: 'All Records',
-                            color: Color(0xff545B77),
+                            color: const Color(0xff545B77),
+                            icon: const Icon(Icons.list_alt, size: 30, color: Colors.white),
                             onTap: (){
                               Navigator.push(
                                 context,
