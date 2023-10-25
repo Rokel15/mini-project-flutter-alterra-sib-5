@@ -4,9 +4,12 @@ import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 
 class AvailableItemsNavigationWidget extends StatefulWidget {
   String label;
+  Color color;
   Function() onTap;
+
   AvailableItemsNavigationWidget({
     required this.label,
+    required this.color,
     required this.onTap,
   });
 
@@ -21,7 +24,7 @@ class _AvailableItemsNavigationWidgetState extends State<AvailableItemsNavigatio
       width: double.infinity,
       padding: EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Color(0xff3F497F),
+        color: widget.color,
         borderRadius: BorderRadius.circular(20)
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,

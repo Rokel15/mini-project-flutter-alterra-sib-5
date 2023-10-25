@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
     return BlocBuilder<MiniprojectBloc, MiniprojectState>(
       builder: (context, state) {
         if (state is AppLoading) {
-          return Center(child: SplashScreen());
+          return const Center(child: SplashScreen());
         } else if (state is AppLoaded) {
           return Scaffold(
             appBar: AppBar(
@@ -54,10 +54,10 @@ class _MainPageState extends State<MainPage> {
                 'Peminjaman Fasilitas Lab ACSL',
                 style: GoogleFonts.roboto(color: Colors.white),
               ),
-              backgroundColor: Color(0xff293462),
+              backgroundColor: const Color(0xff293462),
               actions: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.person_2,
                     color: Colors.white,
                   ),
@@ -71,10 +71,10 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             body: Material(
-              color: Color(0xff3C486B),
+              color: const Color(0xff3C486B),
               child: Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
                     topRight: Radius.circular(20),
@@ -84,12 +84,12 @@ class _MainPageState extends State<MainPage> {
                 child: ListView(
                   children: [
                     Head(),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
-                      padding: EdgeInsets.all(20),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
+                      padding: const EdgeInsets.all(20),
                       width: double.infinity,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -98,6 +98,7 @@ class _MainPageState extends State<MainPage> {
                         children: [
                           AvailableItemsNavigationWidget(
                             label: 'Barang Tersedia',
+                            color: const Color(0xff3F497F),
                             onTap: () {
                               Navigator.push(
                                 context,
@@ -107,14 +108,15 @@ class _MainPageState extends State<MainPage> {
                               );
                             },
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           BorrowNavigationWidget(
                             label: 'Pinjam Barang',
+                            color: Colors.purple.shade800,
                             onTap: () {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(builder: (context) {
-                                  return BorrowItemsPage();
+                                  return const BorrowItemsPage();
                                 }),
                               );
                             },
@@ -122,10 +124,10 @@ class _MainPageState extends State<MainPage> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
-                    MyNote(),
+                    const MyNote(),
                   ],
                 ),
               ),

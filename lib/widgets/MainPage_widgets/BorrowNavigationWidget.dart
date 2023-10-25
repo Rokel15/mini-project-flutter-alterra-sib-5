@@ -4,10 +4,12 @@ import '../../data/FontStyle.dart';
 
 class BorrowNavigationWidget extends StatefulWidget {
   String label;
+  Color color;
   Function() onTap;
 
   BorrowNavigationWidget({
     required this.label,
+    required this.color,
     required this.onTap,
   });
 
@@ -20,21 +22,21 @@ class _BorrowNavigationWidgetState extends State<BorrowNavigationWidget> {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
           color: Colors.purple[800],
           borderRadius: BorderRadius.circular(20)
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(Icons.edit, size: 30, color: Colors.white),
+          const Icon(Icons.edit, size: 30, color: Colors.white),
           SizedBox(height: 10,),
           GestureDetector(
             child: Row(
               children:[
                 Text(widget.label, style: GoogleFonts.roboto(textStyle: white_s18w600),),
-                SizedBox(width: 8,),
-                Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
+                const SizedBox(width: 8,),
+                const Icon(Icons.arrow_circle_right, size: 25, color: Colors.white,)
               ],
             ),
             onTap: widget.onTap,
