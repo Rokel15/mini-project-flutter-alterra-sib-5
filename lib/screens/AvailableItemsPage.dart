@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mini_project_flutter_alterra_sib_5/data/FontStyle.dart';
 import 'package:mini_project_flutter_alterra_sib_5/data/firebase_firestore.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/AvailableItemsPage_widgets/Head.dart';
 import 'package:mini_project_flutter_alterra_sib_5/widgets/AvailableItemsPage_widgets/showAvailableItems.dart';

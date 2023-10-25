@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../data/FontStyle.dart';
 
-class BorrowNavigationWidget extends StatefulWidget {
+class AllRecordsNavigationWidget extends StatefulWidget {
   String label;
   Color color;
   Function() onTap;
 
-  BorrowNavigationWidget({
+  AllRecordsNavigationWidget({
     required this.label,
     required this.color,
     required this.onTap,
   });
 
   @override
-  State<BorrowNavigationWidget> createState() => _BorrowNavigationWidgetState();
+  State<AllRecordsNavigationWidget> createState() => _AllRecordsNavigationWidgetState();
 }
 
-class _BorrowNavigationWidgetState extends State<BorrowNavigationWidget> {
+class _AllRecordsNavigationWidgetState extends State<AllRecordsNavigationWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +30,7 @@ class _BorrowNavigationWidgetState extends State<BorrowNavigationWidget> {
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Icon(Icons.edit, size: 30, color: Colors.white),
+          const Icon(Icons.list_alt, size: 30, color: Colors.white),
           SizedBox(height: 10,),
           GestureDetector(
             child: Row(
