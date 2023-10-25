@@ -98,7 +98,7 @@ class _MyNoteState extends State<MyNote> {
           ListView.builder(
             itemCount: namaBarang.length,
             shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index){
               return Text(
                 '- ${namaBarang[index]}',
