@@ -50,7 +50,7 @@ class _MyNoteState extends State<MyNote> {
                 ],
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 5), width: double.infinity, height: 2.5,
+                margin: const EdgeInsets.only(top: 5, bottom: 15), width: double.infinity, height: 2.5,
                 color: Colors.black,
               ),
               StreamBuilder<QuerySnapshot>(
@@ -60,7 +60,10 @@ class _MyNoteState extends State<MyNote> {
                       return Column(
                         children: snapshot.data!.docs.map((e)
                         => showData(
-                          namaBarang: (e.data() as dynamic)['barang dipinjam'].toString()
+                          tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
+                          name: (e.data() as dynamic)['nama'].toString(),
+                          npm: (e.data() as dynamic)['npm'].toString(),
+                          namaBarang: (e.data() as dynamic)['barang dipinjam']
                         )).toList(),
                       );
                     } else{
@@ -76,18 +79,32 @@ class _MyNoteState extends State<MyNote> {
   }
 
   Widget showData({
-    // required String tanggal,
-    required String namaBarang,
+    required String tanggal,
+    required String name,
+    required String npm,
+    required List namaBarang,
   }){
-    return Container(padding: const EdgeInsets.all(10), margin: const EdgeInsets.symmetric(vertical: 5), width: double.infinity,
+    return Container(padding: const EdgeInsets.all(10), margin: const EdgeInsets.only(bottom: 15), width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: const Color(0xff6F61C0),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('tanggal : ', style: GoogleFonts.roboto(textStyle: white_s16w600),),
-          Text('barang dipinjam : $namaBarang', style: GoogleFonts.roboto(textStyle: white_s16w600),)
+          Text('tanggal : $tanggal', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+          Text('nama : $name', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+          Text('npm : $npm', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+          Text('barang dipinjam : ', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+          ListView.builder(
+            itemCount: namaBarang.length,
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemBuilder: (context, index){
+              return Text(
+                '- ${namaBarang[index]}',
+                style: GoogleFonts.roboto(textStyle: white_s16w600),);
+            },
+          )
         ],
       ),
     );

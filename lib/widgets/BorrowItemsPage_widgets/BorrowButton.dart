@@ -7,11 +7,13 @@ import '../../data/firebase_firestore.dart';
 class BorrowButton extends StatefulWidget {
   String name;
   String npm;
+  String tglPinjam;
   List barangList;
   BorrowButton({
     Key? key,
     required this.name,
     required this.npm,
+    required this.tglPinjam,
     required this.barangList,
   }) : super(key: key);
 
@@ -51,6 +53,7 @@ class _BorrowButtonState extends State<BorrowButton> {
                     'nama': widget.name,
                     'npm': widget.npm,
                     'barang dipinjam': widget.barangList,
+                    'tanggal pinjam' : widget.tglPinjam
                   });
                   Navigator.pop(context);
                 }
