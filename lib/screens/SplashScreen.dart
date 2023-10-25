@@ -15,23 +15,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(color: Colors.white,
-      child: Column(mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Powered by : ', style: GoogleFonts.roboto(textStyle: s16w600),),
-            SizedBox(height: 8),
-            Image.asset(
-              imgSplashScreen1,
-              width: MediaQuery.of(context).size.width/1.8,
-              height: MediaQuery.of(context).size.height/10,
-            ),
-            SizedBox(height: 5),
-            Image.asset(
-              imgSplashScreen2,
-              width: MediaQuery.of(context).size.width/2,
-              height: MediaQuery.of(context).size.height/15,
-            ),
-          ],
-        ),
+      child: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: Column(mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Powered by : ', style: GoogleFonts.roboto(textStyle: s16w600),),
+              SizedBox(height: 8),
+              Image.asset(
+                imgSplashScreen1,
+                width: MediaQuery.of(context).size.width/1.8,
+                height: MediaQuery.of(context).size.height/10,
+              ),
+              SizedBox(height: 5),
+              Image.asset(
+                imgSplashScreen2,
+                width: MediaQuery.of(context).size.width/2,
+                height: MediaQuery.of(context).size.height/15,
+              ),
+            ],
+          ),
+      ),
     );
   }
 }
