@@ -95,7 +95,10 @@ class _AllRecordsPageState extends State<AllRecordsPage> {
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color(0xff545B77),
+        // color: const Color(0xff545B77),
+
+          // color: const Color(0xff7752FE),
+        color: Color(0xff4D4C7D)
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
