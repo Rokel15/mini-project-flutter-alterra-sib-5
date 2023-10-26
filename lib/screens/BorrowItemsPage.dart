@@ -87,14 +87,14 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
                 SliverToBoxAdapter(
                   child: SetDate(
                     dateTime: dateTime,
-                    tglPinjam: tglPinjam!,
+                    tglPinjam: tglPinjam,
                     pilihTgl: (){pilihTgl(context);},
                   ),
                 ),
 
                 SliverToBoxAdapter(
                   child: Container(
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                     width: double.infinity,
                     child: StreamBuilder<QuerySnapshot>(
                       stream: readyItems.snapshots(),
@@ -107,7 +107,7 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
                                 barangList: barangList,
                               )).toList());
                         } else {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(child: CircularProgressIndicator());
                         }
                       },
                     ),
@@ -120,7 +120,7 @@ class _BorrowItemsPageState extends State<BorrowItemsPage> {
           BorrowButton(
               name: name!,
               npm: npm!,
-              tglPinjam: tglPinjam!,
+              tglPinjam: tglPinjam,
               barangList: barangList,
           ),
         ],

@@ -43,9 +43,12 @@ class _BorrowButtonState extends State<BorrowButton> {
                 ],
               ),
             ),
-            onTap: (){
+            onTap: () {
               if (widget.name != 'null' && widget.npm != 'null') {
-                if (widget.barangList.isEmpty) {
+                if (widget.tglPinjam == 'null') {
+                  SnackBar snackbarMessage = SnackBar(content: Text('atur tanggal terlebih dahulu'));
+                  ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
+                } else if (widget.barangList.isEmpty) {
                   SnackBar snackbarMessage = SnackBar(content: Text('tidak ada barang yang dipinjam'));
                   ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
                 } else {
@@ -53,7 +56,7 @@ class _BorrowButtonState extends State<BorrowButton> {
                     'nama': widget.name,
                     'npm': widget.npm,
                     'barang dipinjam': widget.barangList,
-                    'tanggal pinjam' : widget.tglPinjam
+                    'tanggal pinjam': widget.tglPinjam
                   });
                   Navigator.pop(context);
                 }

@@ -70,7 +70,7 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
             body: Material(
-              color: const Color(0xff3C486B),
+              color: const Color(0xff293462),
               child: Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
