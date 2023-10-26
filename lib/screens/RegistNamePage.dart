@@ -32,10 +32,12 @@ class _RegistNamePageState extends State<RegistNamePage> {
     user = data.getBool('regist') ?? true;
 
     if(user==false){
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context){return RegisteredPage();}),
-            (route) => false,);
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context){return const RegisteredPage();}),
+              (route) => false,);
+      });
     }
   }
 
@@ -50,14 +52,14 @@ class _RegistNamePageState extends State<RegistNamePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Registration', style: GoogleFonts.roboto(color: Colors.white)),
-        backgroundColor: Color(0xff293462),
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: const Color(0xff293462),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: ListView(
         children: [
           //input nama
           Container(
-            margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+            margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
             width: double.infinity,
             child: FormInputWidget(
               label: "Nama : ",
@@ -69,7 +71,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
 
           //input npm
           Container(
-            margin: EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
+            margin: const EdgeInsets.only(top: 10, left: 20, right: 20, bottom: 20),
             width: double.infinity,
             child: FormInputWidget(
               label: "NPM : ",
@@ -96,7 +98,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
                       MaterialPageRoute(builder: (context){return RegisteredPage();}),
                           (route) => false);
                 } else if(nameController.text.isEmpty && npmController.text.isEmpty){
-                  SnackBar snackbarMessage = SnackBar(content: Text('nama dan npm tidak boleh kosong'));
+                  SnackBar snackbarMessage = const SnackBar(content: Text('nama dan npm tidak boleh kosong'));
                   ScaffoldMessenger.of(context).showSnackBar(snackbarMessage);
                 }
               },

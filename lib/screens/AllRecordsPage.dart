@@ -26,75 +26,60 @@ class _AllRecordsPageState extends State<AllRecordsPage> {
       ),
       body: ListView(children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 15),
+          margin: const EdgeInsets.all(15),
           width: double.infinity,
           child: Column(
             children: [
               Row(
                 children: [
-                  const Icon(
-                    Icons.list_alt,
-                    size: 30,
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    'Daftar Barang yang anda pinjam',
-                    style: GoogleFonts.roboto(textStyle: s18w600),
-                  ),
+                  const Icon(Icons.list_alt, size: 30,),
+                  const SizedBox(width: 5,),
+                  Text('History Peminjaman Barang', style: GoogleFonts.roboto(textStyle: s18w600),),
                 ],
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 5, bottom: 15),
-                width: double.infinity,
-                height: 2.5,
-                color: Colors.black,
-              ),
-              StreamBuilder<QuerySnapshot>(
-                  stream: borrowedItems.snapshots(),
-                  builder: (_, snapshot) {
-                    if (snapshot.hasData) {
-                      return Column(
-                          children: snapshot.data!.docs.map((e) {
-                            var data = (e.data() as dynamic)['barang dipinjam'];
-                            print(data);
-                            List<dynamic> list = [];
-                            list.add(data);
-                            print('$list halo');
-                            return showData(
-                              tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
-                              name: (e.data() as dynamic)['nama'].toString(),
-                              npm: (e.data() as dynamic)['npm'].toString(),
-                              namaBarang: data,
-                            );
-                          }).toList()
-
-                          // children: snapshot.data!.docs.map((e)
-                          // return {
-                          // showData(
-                          // tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
-                          // name: (e.data() as dynamic)['nama'].toString(),
-                          // npm: (e.data() as dynamic)['npm'].toString(),
-                          // namaBarang: (e.data() as dynamic)['barang dipinjam'],
-                          // )).toList()
-                          // }
-                          //     showData(
-                          //   tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
-                          //   name: (e.data() as dynamic)['nama'].toString(),
-                          //   npm: (e.data() as dynamic)['npm'].toString(),
-                          //   namaBarang: (e.data() as dynamic)['barang dipinjam'],
-                          // )).toList(),
-                          );
-                    } else {
-                      return const Center(
-                        child: CircularProgressIndicator(),
-                      );
-                    }
-                  }),
+              SizedBox(height: 5,),
+              Container(width: double.infinity, height: 2.5, color: Colors.black,),
             ],
           ),
         ),
+
+        StreamBuilder<QuerySnapshot>(
+            stream: borrowedItems.snapshots(),
+            builder: (_, snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                    children: snapshot.data!.docs.map((e) {
+                      var data = (e.data() as dynamic)['barang dipinjam'];
+                      return showData(
+                        tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
+                        name: (e.data() as dynamic)['nama'].toString(),
+                        npm: (e.data() as dynamic)['npm'].toString(),
+                        namaBarang: data,
+                      );
+                    }).toList()
+
+                    // children: snapshot.data!.docs.map((e)
+                    // return {
+                    // showData(
+                    // tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
+                    // name: (e.data() as dynamic)['nama'].toString(),
+                    // npm: (e.data() as dynamic)['npm'].toString(),
+                    // namaBarang: (e.data() as dynamic)['barang dipinjam'],
+                    // )).toList()
+                    // }
+                    //     showData(
+                    //   tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
+                    //   name: (e.data() as dynamic)['nama'].toString(),
+                    //   npm: (e.data() as dynamic)['npm'].toString(),
+                    //   namaBarang: (e.data() as dynamic)['barang dipinjam'],
+                    // )).toList(),
+                    );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            }),
       ]),
     );
   }
@@ -106,12 +91,11 @@ class _AllRecordsPageState extends State<AllRecordsPage> {
     required List<dynamic> namaBarang,
   }) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.all(10), margin: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: const Color(0xff6F61C0),
+        color: const Color(0xff545B77),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
