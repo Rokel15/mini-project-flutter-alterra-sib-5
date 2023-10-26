@@ -95,7 +95,7 @@ class _RegistNamePageState extends State<RegistNamePage> {
                   data.setString('npm', npm!);
                   Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context){return RegisteredPage();}),
+                      MaterialPageRoute(builder: (context){return const RegisteredPage();}),
                           (route) => false);
                 } else if(nameController.text.isEmpty && npmController.text.isEmpty){
                   SnackBar snackbarMessage = const SnackBar(content: Text('nama dan npm tidak boleh kosong'));
