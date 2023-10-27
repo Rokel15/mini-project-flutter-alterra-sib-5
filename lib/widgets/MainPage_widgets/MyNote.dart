@@ -63,7 +63,8 @@ class _MyNoteState extends State<MyNote> {
                           tanggal: (e.data() as dynamic)['tanggal pinjam'].toString(),
                           name: (e.data() as dynamic)['nama'].toString(),
                           npm: (e.data() as dynamic)['npm'].toString(),
-                          namaBarang: (e.data() as dynamic)['barang dipinjam']
+                          namaBarang: (e.data() as dynamic)['barang dipinjam'],
+                          delete: (){borrowedItems.doc(e.id).delete();}
                         )).toList(),
                       );
                     } else{
@@ -83,6 +84,7 @@ class _MyNoteState extends State<MyNote> {
     required String name,
     required String npm,
     required List namaBarang,
+    required Function() delete,
   }){
     return Container(padding: const EdgeInsets.all(10), margin: const EdgeInsets.only(bottom: 15), width: double.infinity,
       decoration: BoxDecoration(
@@ -91,7 +93,14 @@ class _MyNoteState extends State<MyNote> {
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('tanggal : $tanggal', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+          Row(
+            children: [
+              Text('tanggal : $tanggal', style: GoogleFonts.roboto(textStyle: white_s16w600),),
+              SizedBox(width: 5,),
+              GestureDetector(child: Icon(Icons.delete_forever, color: Colors.white,), onTap: (){delete();},)
+            ],
+          ),
+          Container(margin: EdgeInsets.symmetric(vertical: 3), height: 1.5, color: Colors.white,),
           Text('nama : $name', style: GoogleFonts.roboto(textStyle: white_s16w600),),
           Text('npm : $npm', style: GoogleFonts.roboto(textStyle: white_s16w600),),
           Text('barang dipinjam : ', style: GoogleFonts.roboto(textStyle: white_s16w600),),
@@ -104,7 +113,7 @@ class _MyNoteState extends State<MyNote> {
                 '- ${namaBarang[index]}',
                 style: GoogleFonts.roboto(textStyle: white_s16w600),);
             },
-          )
+          ),
         ],
       ),
     );
